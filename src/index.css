@@ -17,6 +17,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 1440px;
+  /* margin-inline: auto; */
 }
 
 
@@ -26,8 +28,6 @@ code {
 }
 
 .mainContainer {
-  max-width: 1440px;
-  /* max-height: auto; */
   background: linear-gradient(90deg, #000000 17.76%, rgba(0, 0, 0, 0.687449) 41.44%, rgba(196, 196, 196, 0) 100%);
 
 }
@@ -198,7 +198,8 @@ code {
 }
 
 .posterImg {
-  width: 99.76vw;
+  /* width: 99.76vw; */
+  width: 1363px;
   position: absolute;
   top: 0;
   z-index: -1;
@@ -255,6 +256,15 @@ code {
   color: #FFFFFF;
 }
 
+.titleOverview p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;/* number of lines to show */ 
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
 .titleGenre h1 {
   font-family: 'Montserrat';
   font-style: normal;
@@ -275,7 +285,7 @@ code {
 
 .buttons {
   display: flex;
-  margin-top: 10px;
+  align-items: center;
   gap: 21px;
 }
 
@@ -295,9 +305,11 @@ code {
   border-radius: 30px;
   color: #FFFFFF;
   cursor: pointer;
+  border: none;
 }
 
 .buttons .myListButton {
+  border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -376,17 +388,71 @@ code {
 }
 
 .mainSlideMenu {
-  display: flex;
   overflow: hidden;
   gap: 42px;
 }
 
+.next {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 80px;
+  right: 0px;
+  z-index: 100;
+  width: 60px;
+  height: 323px;
+  background: rgba(20, 0, 0, 0.6);
+  cursor: pointer;
+  color: #ffff;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.next:hover {
+  background: rgba(0, 0, 0, 1);
+  transform: scaleX(1.5);
+}
+
+.prev {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -1%;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(20, 0, 0, 0.6);
+  cursor: pointer;
+  color: #ffff;
+  border: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.prev:hover {
+  background: rgba(0, 0, 0, 1);
+  transform: translateX(15px);
+}
+
+
+
 .slideCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
+  width: 168px;
+  transition: all 0.3s;
   gap: 10px;
 }
+
+/* .slideCard:hover {
+  transform: scale(1.1);
+} */
 
 .cardPoster img {
   width: 168px;
@@ -513,6 +579,7 @@ code {
 .recommendedPage {
   margin-top: 19px;
   width: 98.7vw;
+  /* width: 1345px; */
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -556,6 +623,10 @@ code {
   cursor: pointer;
 }
 
+.recommendedBottom {
+  position: relative;
+}
+
 .lang:hover {
   color: #fff;
   transition: all 0.3s;
@@ -584,7 +655,7 @@ code {
   justify-content: center;
   gap: 87px;
   background: #161214;
-  padding: 95px 235px 41px 81px;
+  padding: 95px 100px 41px 81px;
 }
 
 .mainFooterTop {
@@ -615,7 +686,10 @@ code {
   opacity: 0.8;
 }
 
-.footerNav , .footerLegal , .footerContact , .footerSocials {
+.footerNav,
+.footerLegal,
+.footerContact,
+.footerSocials {
   display: flex;
   flex-direction: column;
   gap: 13px;
@@ -658,3 +732,213 @@ code {
   opacity: 0.8;
 }
 
+.footerSocialsLink {
+  display: flex;
+  gap: 14px;
+}
+
+.downLoadBtn {
+  padding: 13px;
+
+}
+
+.downloadBtn {
+  width: 50px;
+  height: 50px;
+  background: #5C5C5C;
+  border-radius: 30px;
+  border: none;
+}
+
+
+
+.movieAudioSubtitle {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 20px;
+  width: 377px;
+  height: 100px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.movieAudio {
+  display: flex;
+  flex-direction: column;
+  /* gap: 1px; */
+}
+
+
+.audioHeading h1,
+.subtitleHeading h1 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #E43109;
+}
+
+.movieAudio p,
+.movieSubtitle p {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+
+.CastAndCrew {
+  margin-top: 45px;
+  margin-left: 124px;
+  overflow: hidden;
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+
+.mainCastAndCrew {
+  padding: 20px 31px 56px 31px;
+  background: rgba(11, 15, 22, 0.47);
+  box-shadow: 8px -8px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 104px;
+}
+
+.movieTrailer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.trailerHeading h1 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+.movieTrailerVid video {
+  width: 307px;
+  height: 170px;
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.36));
+  border-radius: 7px;
+}
+
+.castAndCrewInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gapDiv {
+  display: flex;
+  gap: 72px;
+}
+
+.castAndCrewHeading h1 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+.castAndCrewCard {
+  width: 110px;
+  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.castImage img {
+  width: 110px;
+  height: 145px;
+  border: 1px solid #FFFFFF;
+  border-radius: 9px;
+}
+
+.castNameAndRole {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  /* width: 132px; */
+}
+
+.CastName p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.Role p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  white-space: nowrap;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #A9A9A9;
+}
+
+.SimilarMovies {
+  /* margin-inline: auto; */
+  margin-top: 70px;
+  margin-left: 124px;
+  margin-bottom: 68px;
+}
+
+.mainSimilar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 5px;
+}
+
+.mainSimilarHeading h1 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+.mainSimilarCardInfo {
+  /* display: flex; */
+  gap: 28px;
+  overflow: hidden;
+}
+
+.similarCard img {
+  width: 289px;
+  /* width: auto; */
+  height: 172px;
+  /* height: auto; */
+  filter: drop-shadow(6px 6px 6px rgba(0, 0, 0, 0.36));
+  border-radius: 7px;
+}

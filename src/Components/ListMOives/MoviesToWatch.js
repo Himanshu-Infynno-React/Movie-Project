@@ -9,16 +9,18 @@ import SlideBar from '../slideBarComponent/SlideBar'
 function MoviesToWatch() {
 
     const [getMovies, setGetMovies] = useState([])
+    const fetchMovies = async () => {
+        const url = 'https://api.themoviedb.org/3/movie/popular?api_key=89f66f8a224fb9e217830eef2c34cc44&language=en-US&page=20'
+        const res = await axios.get(url);
+        const data = res.data;
+        const data2 = data.results;
+        setGetMovies(data2);
+    }
+
+    
+
 
     useEffect(() => {
-        const fetchMovies = async () => {
-            const url = 'https://api.themoviedb.org/3/movie/popular?api_key=89f66f8a224fb9e217830eef2c34cc44&language=en-US&page=1'
-            const res = await axios.get(url);
-            const data = res.data;
-            const data2 = data.results;
-            setGetMovies(data2);
-            console.log(data.results)
-        }
 
         fetchMovies();
     }, [])

@@ -1,28 +1,51 @@
-import React from 'react'
+import React, {  useRef } from 'react'
 import IMDBSmall from '../../images/image 3.png'
 import Eye from '../../images/eye (1) 1.png'
 import WhiteHeart from '../../images/image 4.png'
 import RedHeart from '../../images/image 4 (1).png'
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick'
+import { Link } from 'react-router-dom'
+
 
 function SlideBar({ getMovies }) {
 
-    const breakPoints = [
-        { width: 1, itemsToShow: 1 },
-        { width: 500, itemsToShow: 3 },
-        { width: 780, itemsToShow: 4 },
-        { width: 1440, itemsToShow: 6 }
-    ]
+    // let {id} = useParams()
+
+    const ref = useRef()
+
+    // function previousSlide(){
+    //     ref.current.slickPrev()
+    // }
+
+    // function nextSlide(){
+    //     ref.current.slickNext()
+    // }
+
+    const settings = {
+        infinite: true,
+        speed: 200,
+        slidesToShow: 7,
+        slidesToScroll: 1,
+        autoplaySpeed : 5000,
+        swipeToSlide : true,
+    };
+
+
 
     return (
 
         <>
-                <section className='slideMenu'>
-                    <div className="mainSlideMenu">
+            <section className='slideMenu'>
+                <div className="mainSlideMenu">
+                    {/* <button className='prev' onClick={()=>previousSlide()}>Prev</button> */}
+                    <Slider ref={ref}  {...settings} >
                         {getMovies.map((movies) => {
                             return <>
-                                <div className="slideCard">
-                                    <div className="cardPoster">
-                                        <img src={`https://image.tmdb.org/t/p/w185/${movies.poster_path}`} alt="" />
+                                <div key={movies.id} className="slideCard">
+                                    <div className="cardPoster"> 
+                                    <Link to={`/desc/${movies.id}`}><img src={`https://image.tmdb.org/t/p/w185/${movies.poster_path}`} alt="" /> </Link>
                                     </div>
                                     <div className="cardTitle">
                                         <h1>{movies.original_title}</h1>
@@ -51,9 +74,12 @@ function SlideBar({ getMovies }) {
                                 </div>
                             </>
                         })
-                        }
-                    </div>
-                </section>
+                    }
+                    </Slider>
+                    {/* <button className='next' onClick={()=>nextSlide()}>Next</button> */}
+
+                </div>
+            </section>
         </>
     )
 }

@@ -40,7 +40,7 @@ function RecommendedBar() {
                             <button className='lang tamil'>Tamil</button>
                             <button className='lang malayalam'>Malayalam</button>
                         </div>
-                        <div>
+                        <div className='recommendedBottom'>
                             <SlideBar getMovies={getMovies} />
                         </div>
                     </div>
